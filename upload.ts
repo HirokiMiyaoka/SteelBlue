@@ -72,7 +72,8 @@ module SteelBlue
     {
       if ( window.navigator.userAgent.toLowerCase().indexOf( "chrome" ) > -1)
       {
-        XMLHttpRequest.prototype.sendAsBinary = function( datastr )
+        var xhr: any = XMLHttpRequest;
+        xhr.prototype.sendAsBinary = function( datastr )
         {
           function byteValue( x ) { return x.charCodeAt( 0 ) & 0xff; }
           var ords = Array.prototype.map.call( datastr, byteValue );
